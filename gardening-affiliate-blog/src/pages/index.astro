@@ -1,1 +1,17 @@
-<h1>Home Page</h1>
+---
+import BlogCard from '../components/BlogCard.astro';
+import { posts } from '../data/posts';
+---
+
+<h1 class="text-3xl font-bold text-center my-8">Garden Blog</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+  {posts.map(post => (
+    <BlogCard 
+      title={post.title}
+      image={post.image}
+      date={post.date}
+      excerpt={post.excerpt}
+      slug={post.slug}
+    />
+  ))}
+</div>
